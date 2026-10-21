@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DevFlix</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 class="logo">
+            Dev<span>Flix</span>
+        </h1>
+
+    </header>
+
+    <section class="container">
+        <div class="header-section">
+            <h2 class="section-title">catálogo de filmes</h2>
+        </div>
+
+        <div class="grid-filmes">
+            {% for filme in filmes %}
+            <div class="card">
+                <div class="card-content">
+                    <h3>{{ filme.titulo }}</h3>
+                    <img src="{{ filme.capa_url }}" class="card-img">
+                    <p><strong>gênero:</strong> {{ filme.genero }}</p>
+                    <p><strong>lançamento</strong> {{ filme.ano_lancamento }}</p>
+                    <p><strong>nota:</strong> {{ filme.nota }}</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-message">
+                    <h3>nenhum filme disponível</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+
+
+</html>
